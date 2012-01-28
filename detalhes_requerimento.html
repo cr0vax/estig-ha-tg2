@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta name="generator"
+    content="HTML Tidy for Windows (vers 14 February 2006), see www.w3.org" />
+    <meta content="text/html; charset=iso-8859-1"
+    http-equiv="content-type" />
+    <title>IPBEJA - Sistema de Gestão de Processos de
+    Creditação</title>
+    <link href="./css/default.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript"
+    src="./scripts/cookies.js"></script>
+	<script language="javascript" type="text/javascript"
+    src="./scripts/geral.js"></script>
+    <script language="javascript" type="text/javascript"
+    src="./scripts/userstats.js"></script>
+    <script language="javascript" type="text/javascript"
+    src="./scripts/menu.js"></script>
+    <script language="javascript" type="text/javascript"
+    src="./scripts/detalhes_requerimento.js"></script>
+	<script type="text/javascript" src="./scripts/MPBackLinks.js"></script>
+  </head>
+  <body style="background-color:#cccccc" onload="validarSessao();geraConteudo();">
+    <div id="main" align="center">
+      <div id="container" style="width:952px">
+        <div id="header" class="header">
+          <div id="logo" class="logo">
+            <img src="./imagens/logo.png" />
+          </div>
+          <div id="banner" class="banner">
+            <img src="./imagens/banner.png" width="740" height="174" />
+          </div>
+        </div>
+        <div id="left" class="left" align="left">
+          <div id="left_top" class="left_top">
+            <div id="user_stats">
+				<div id="user_stats_content" class="text">
+				  <script language="javascript" type="text/javascript">
+					loadUserStats();
+				  </script>
+				</div>
+            </div>
+          </div>
+          <br />
+          <div id="menu" class="menu">
+			<div id="menu_content" class="text"><script language="javascript" type="text/javascript">loadMenu(readCookie('usertype'));</script></div>
+		  </div>
+        </div>
+        <div id="content" class="content">
+			<div id="breadcrumbs"><script language="javascript" type="text/javascript">document.write(MPJSBackLinks());</script></div>
+			<div id="text" class="text">
+				<a href="#" onmousedown="help()" id="help">Ajuda</a>
+				<div id="processo">
+					<div id="titulo"></div>
+					<div id="cabecalho">
+						<div id="n_processo"></div>
+						<div id="data"></div>
+						<div id="curso"></div>
+						<div id="nome"></div>
+					</div>
+					<div id="formacoes"></div>
+				</div>
+			</div>
+		</div>
+        <div id="footer" class="footer">IPBEJA todos os direitos
+        reservados!</div>
+      </div>
+    </div>
+  </body>
+</html>

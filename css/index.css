@@ -1,0 +1,25 @@
+.header{background-color:#FFFFFF;height:174px;width:952px}
+.logo{height:174px;width:212px;float:left}
+.banner{height:174px;width:740px;float:right}
+
+/* .left{background-color:#FFFFFF;height:200px;width:210px;float:left;border: thin solid #000000} */
+.left{background-color:#FFFFFF;height:200px;width:212px;float:left}
+.left_top{border-top: thin solid #000000;}
+.menu{border-top: thin solid #000000;}
+
+.content{background-color:#EEEEEE;height:200px;width:740px;float:left}
+/*.help{background-image:url('./imagens/help.jpg');height:50px;width:50px;float:right}*/
+.help{
+	background-image: url(imagens/help.png);
+	background-color: #FFFFFF;
+	background-repeat: repeat-x;
+	background-position: right top;
+	height:30px;
+	width:30px;
+	position:relative;
+	left:460px;
+	top:1px;
+}
+
+/*.footer{background-color:#FFFFFF;border-top: thin solid #000000;font-family: Arial, Helvetica, sans-serif;font-size: 10px;height:200px}*/
+.footer{background-color:#FFFFFF;border-top: thin solid #000000}

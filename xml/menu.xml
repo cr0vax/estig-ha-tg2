@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<mainmenu>
+	<menu>
+		<name>Requerimentos</name>
+		<url>requerimentos.html</url>
+		
+		<submenu>
+			<name>Consultar</name>
+			<url>consultar_requerimentos.html</url>
+			<permissions>student;employee</permissions>
+		</submenu>
+		
+		<submenu>
+			<name>Submeter</name>
+			<url>submeter_requerimentos.html</url>
+			<permissions>student</permissions>
+		</submenu>
+		
+		<submenu>
+			<name>Validar</name>
+			<url>validar_requerimentos.html</url>
+			<permissions>employee</permissions>
+		</submenu>
+	</menu>
+	
+	<menu>
+		<name>Pareceres</name>
+		<url>pareceres.html</url>
+		
+		<submenu>
+			<name>Consultar</name>
+			<url>consultar_pareceres.html</url>
+			<permissions>coordinator</permissions>
+		</submenu>
+		
+		<submenu>
+			<name>Emitir</name>
+			<url>emitir_pareceres.html</url>
+			<permissions>coordinator</permissions>
+		</submenu>
+		
+		<submenu>
+			<name>Constituir Júri</name>
+			<url>constituir_juri.html</url>
+			<permissions>coordinator</permissions>
+		</submenu>
+	</menu>
+	
+	<menu>
+		<name>Mensagens</name>
+		<url>mensagens.html</url>
+		
+		<submenu>
+			<name>Consultar</name>
+			<url>consultar_mensagens.html</url>
+			<permissions>student;coordinator;employee</permissions>
+		</submenu>
+		
+		<submenu>
+			<name>Criar</name>
+			<url>criar_mensagens.html</url>
+			<permissions>student;coordinator;employee</permissions>
+		</submenu>
+	</menu>
+	
+	<menu>
+		<name>Contactos</name>
+		<url>contactos.html</url>
+		
+		<submenu>
+			<name>Consultar</name>
+			<url>consultar_contactos.html</url>
+			<permissions>student;coordinator;employee</permissions>
+		</submenu>
+		
+		<submenu>
+			<name>Editar</name>
+			<url>editar_contactos.html</url>
+			<permissions>student;coordinator;employee</permissions>
+		</submenu>
+	</menu>
+	
+</mainmenu>

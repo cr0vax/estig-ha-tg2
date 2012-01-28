@@ -1,0 +1,121 @@
+/*************************
+	    PAGE PARTS
+*************************/
+
+/* ENTRADA */
+.header{
+	background-color:#FFFFFF;
+	height:174px;
+	width:952px;
+}
+
+.logo{
+	height:174px;
+	width:212px;
+	float:left;
+}
+
+.banner{
+	height:174px;
+	width:740px;
+	float:right;
+}
+
+.left{
+	background-color:#FFFFFF;
+	width:212px;
+	float:left;
+}
+
+.left_top{
+	border-top: thin solid #000000;
+}
+
+.menu{
+	border-top: thin solid #000000;
+}
+
+.content{
+	background-color:#EEEEEE;
+	height:700px;
+	width:740px;
+	float:left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align:left;
+}
+
+.footer{
+	background-color:#FFFFFF;
+	border-top: thin solid #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+
+.lprocessos{
+	background-color:#FFFFFF;
+	border-right: thin solid #000000;
+	border-top: thin solid #000000;
+	border-left: thin solid #000000;
+	border-bottom: thin solid #000000;
+}
+
+.lista_processos {
+	width:100%;
+	border-right: thin solid #000000;
+	border-top: thin solid #000000;
+	border-left: thin solid #000000;
+	border-bottom: thin solid #000000;
+}
+
+#help {
+	background-color: #FF3300;
+	background-repeat: repeat-x;
+	background-position: right top;
+	height:30px;
+	width:30px;
+	position:absolute;
+	left:1155px;
+	top:185px;
+    display:block;
+    /*background:transparent url(http://localhost/ha/imagens/ajuda30x30.png) no-repeat center center;*/
+    background:transparent url('../imagens/ajuda30x30.png') no-repeat center center;
+    text-indent:-9999px;
+}
+
+*/
+/* INDEX */
+.index_content{
+	background-color:#EEEEEE;
+	height:330px;
+	width:952px;
+	float:left;
+}
+
+.login{
+	border: thin solid #000000;
+	width: 280px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-right:10px;
+	padding-left:10px;
+}
+
+/*************************
+	    UTILITIES
+*************************/
+.error{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	background-color: #FF0000;
+}
+
+.text{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	text-align:left;
+	padding-top:25px;
+	padding-bottom:25px;
+	padding-right:25px;
+	padding-left:25px;
+}
