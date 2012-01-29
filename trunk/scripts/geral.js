@@ -17,6 +17,24 @@ function help()
 // Função responsável pela disponibilização de
 // de informação relativa ao utilizador
 //////////////////////////////////////////////
+function getSelectedRadioValue(buttonGroup) {
+   // returns the value of the selected radio button or "" if no button is selected
+   var i = getSelectedRadio(buttonGroup);
+   if (i == -1) {
+      return "";
+   } else {
+      if (buttonGroup[i]) { // Make sure the button group is an array (not just one button)
+         return buttonGroup[i].value;
+      } else { // The button group is just the one button, and it is checked
+         return buttonGroup.value;
+      }
+   }
+} // Ends the "getSelectedRadioValue" function
+
+//////////////////////////////////////////////
+// Função responsável pela disponibilização de
+// de informação relativa ao utilizador
+//////////////////////////////////////////////
 function loadUserStats()
 {
 	var name = readCookie('name');

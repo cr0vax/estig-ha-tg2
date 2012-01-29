@@ -28,6 +28,7 @@ function adicionarFormacao(descricao_formacao, tipo_formacao)
 function geraComboAnexosSubmetidos()
 {
 	var combo;
+	//var x = 
 	
 	combo = populateComboBox('', 'comboAnexosSubmetidos', 'Anexos', anexosSubmetidos, '');
 	
@@ -86,11 +87,13 @@ function geraPassos(passo)
 ////////////////////////////////////////
 // Gera a form dos anexos associados
 ////////////////////////////////////////
-function geraListaAnexosAssociados()
+function geraListaAnexosAssociados(formacao)
 {
 	var formListaFormacaoRealizada;
 	var formListaAnexosAssociados;
 	var comboAnexosSubmetidos;
+	
+	alert('Aqui com a formação :' + formacao);
 	
 	// gera a combo dos anexos submetidos
 	comboAnexosSubmetidos = geraComboAnexosSubmetidos();
@@ -108,19 +111,61 @@ function geraListaAnexosAssociados()
 		'<form name="anexos_associados" class="border">' +
 			'<table>' +
 				'<tr>' +
-					'<td><input type="checkbox" name="all" value="all"  /></td>' +
+					'<td>&nbsp;</td>' +
 					'<td>Designação</td>' +
 					'<td>Anexo</td>' +
-				'</tr>' +
-			'</table><br>' +
-			'<input type="button" value="Remover" onclick="novoAnexo(this.value)/><br>' +
-			comboAnexosSubmetidos + '<br>' + 
-			'<input type="button" value="Novo" />' +
-			'<input type="button" value="Associar" />' +
-			
-		'</form>';
+				'</tr>'
+				
+				if (novasFormacoes && formacao) {
+					//alert('TAMANHO:' + novasFormacoes.getElementsByTagName("TYPE").length);
+					var x = novasFormacoes.getElementsByTagName("FORMATION")[formacao];
+					var docs = x.getElementsByTagName("DOC");
+					
+					for (i=0;i<x.length;i++) {
+						
+						formListaFormacoes = '<tr>' + formListaFormacoes +
+							'<td><input type="radio" id="rb_anexo" name="rb_anexo" value="' + i + '"  /></td>' +
+							'<td>' + x[i].getElementsByTagName("DESCRIPTION")[0].childNodes[0].nodeValue + '</td>' +
+							'<td>' + x[i].getElementsByTagName("FILENAME")[0].childNodes[0].nodeValue + '</td></tr>'
+					}
+				}
+				
+	formAnexosAssociados = formAnexosAssociados +
+		'</table><br>' +
+		'<input type="button" value="Remover" onclick="removerAnexo(this.value)/><br>' +
+		comboAnexosSubmetidos + '<br>' + 
+		'<input type="button" value="Novo" />' +
+		'<input type="button" value="Associar" />' +
 		
-	return formAdicionarAnexo + formAnexosAssociados;
+	'</form>';
+	
+	document.getElementById("lista_anexos_associados").innerHTML = formAdicionarAnexo + formAnexosAssociados;
+}
+
+////////////////////////////////////////
+// Remove uma formação da lista
+////////////////////////////////////////
+function removerFormacao()
+{
+	var radioGroup = document.getElementsByName("rb_formacao");
+	var id_formacao;
+	
+	// encontra a formação seleccionada
+	for (var x = 0; x < radioGroup.length; x ++) {
+		if (radioGroup[x].checked) {
+		  id_formacao =  radioGroup[x].value;
+		}
+	}
+	
+	// se o id de formação existir e houverem formações carregadas remove-a
+	if (id_formacao && novasFormacoes)
+	{
+		var y = novasFormacoes.getElementsByTagName("FORMATION")[id_formacao];
+		y.parentNode.removeChild(y);
+	}
+	
+	// atualiza a lista de formações
+	geraListaFormacaoRealizada();
 }
 
 ////////////////////////////////////////
@@ -154,22 +199,20 @@ function geraListaFormacaoRealizada()
 				'</tr>'
 				
 				if (novasFormacoes) {
-					alert('TAMANHO:' + novasFormacoes.getElementsByTagName("TYPE").length);
+					//alert('TAMANHO:' + novasFormacoes.getElementsByTagName("TYPE").length);
 					var x = novasFormacoes.getElementsByTagName("FORMATION");
 
 					for (i=0;i<x.length;i++) {
-						//alert(x[i].getElementsByTagName("TYPE")[0].childNodes[0].nodeValue);
 						
 						formListaFormacoes = '<tr>' + formListaFormacoes +
-							//'<td><input type="checkbox" name="all" value="' + i + '"  /></td>' +
-							'<td><input type="radio" name="all" value="' + i + '"  /></td>' +
+							'<td><input type="radio" onclick="geraListaAnexosAssociados(this.value)" id="rb_formacao" name="rb_formacao" value="' + i + '"  /></td>' +
 							'<td>' + x[i].getElementsByTagName("TYPE")[0].childNodes[0].nodeValue + '</td>' +
 							'<td>' + x[i].getElementsByTagName("DESCRIPTION")[0].childNodes[0].nodeValue + '</td></tr>'
 					}
 				}
 		formListaFormacoes = formListaFormacoes +
 			'</table><br>' +
-			'<input type="button" value="Remover" />' +
+			'<input type="button" value="Remover" onclick="removerFormacao()"/>' +
 		'</form>';
 		
 	document.getElementById("lista_formacao_realizada").innerHTML = formAdicionarFormacao + formListaFormacoes;
@@ -183,28 +226,19 @@ function geraListaFormacaoRealizada()
 /////////////////////////////////
 function desenhaPasso1()
 {
-	var formListaFormacaoRealizada = "";
-	var formListaAnexosAssociados = "";
 	const TITULO_PASSO1 = "Submeter Requerimento - Passo 1";
 	
 	//lista_formacao_realizada
-	//formListaFormacaoRealizada = geraListaFormacaoRealizada();
 	geraListaFormacaoRealizada();
 	
 	//lista_anexos_associados
-	formListaAnexosAssociados = geraListaAnexosAssociados();
+	geraListaAnexosAssociados();
 	
 	// adiciona passos ao documento
 	document.getElementById("passos").innerHTML = geraPassos(0);
 	
 	// adiciona ao documento o título
 	document.getElementById("titulo").innerHTML = TITULO_PASSO1;
-	
-	// adiciona ao documento a form das formações
-	//document.getElementById("lista_formacao_realizada").innerHTML = formListaFormacaoRealizada;
-
-	// adiciona ao documento a form dos anexos
-	document.getElementById("lista_anexos_associados").innerHTML = formListaAnexosAssociados;
 							
 }
 
@@ -217,11 +251,13 @@ function adicionarObjetos(passo)
 	switch (passo)
 	{
 		case 2:
+			desenhaPasso2();
 			break;
 		case 3:
+			desenhaPasso3();
 			break;
 		default:
-			desenhaPasso1()
+			desenhaPasso1();
 			break;
 	}
 }
@@ -238,7 +274,7 @@ function submeterRequerimentoDesenhaEsqueleto(passo)
 	document.getElementById("text").innerHTML = 
 		'<a id="help" onmousedown="help(\'submeteRequerimento_1\')" href="#">Ajuda</a>' + 
 			'<div id="processo">' +
-				'<div id="titulo"></div>' +
+				'<div id="titulo" class="titulo"></div>' +
 				'<div id="passos"></div>' +
 				'<div id="conteudo">' +
 					'<div id="lista_formacao_realizada" class="lista_formacoes"></div>' +
@@ -257,7 +293,6 @@ function submeterRequerimentoDesenhaEsqueleto(passo)
 /////////////////////////////////
 function submeterRequerimento(passo)
 {
-	// cria a estrutura
 	// create temporary XML
 	if (!(temp) && !novasFormacoes) {
 		temp = global_xmlRequerimentos;
