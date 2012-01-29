@@ -68,6 +68,32 @@
 	border-bottom: thin solid #000000;
 }
 
+.lista_formacoes {
+	width:48%;
+	border-right: thin solid #000000;
+	border-top: thin solid #000000;
+	border-left: thin solid #000000;
+	border-bottom: thin solid #000000;
+	float:left;
+}
+
+.lista_anexos {
+	width:48%;
+	border-right: thin solid #000000;
+	border-top: thin solid #000000;
+	border-left: thin solid #000000;
+	border-bottom: thin solid #000000;
+	float:right;
+}
+
+.border {
+	width:100%;
+	border-right: thin solid #000000;
+	border-top: thin solid #000000;
+	border-left: thin solid #000000;
+	border-bottom: thin solid #000000;
+}
+
 #help {
 	background-color: #FF3300;
 	background-repeat: repeat-x;
@@ -86,8 +112,8 @@
 */
 /* INDEX */
 .index_content{
-	background-color:#EEEEEE;
-	height:330px;
+	background-color:#FFFFFF;
+	height:400px;
 	width:952px;
 	float:left;
 }

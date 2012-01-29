@@ -1,26 +1,12 @@
 const PAGINA_ENTRADA = "entrada.html";
 const PAGINA_INICIAL = "index.html";
-const DOCS_PATH = "docs";
+const DOCS_PATH = "./docs/";
+const XML_PATH = './xml/';
+const IMAGENS_PATH = './imagens/';
 
 //////////////////////////////////////////////
-// abre ficheiro XML
-// e define-lhe um título
-//////////////////////////////////////////////
-function readXML(xmlFile)
-{
-	const XML_PATH = './xml/';
-	
-	// abre o ficheiro XML dos processos
-	makeRequest(XML_PATH + xmlFile);
-	var xmlDoc=http_request.responseXML;
-	
-	// retorna o ficheiro xml
-	return xmlDoc;
-}
-
-//////////////////////////////////////////////
-// preenche uma caixa de combinação
-// e define-lhe um título
+// Função responsável pela disponibilização de
+// ajuda na página
 //////////////////////////////////////////////
 function help()
 {
@@ -28,13 +14,37 @@ function help()
 }
 
 //////////////////////////////////////////////
+// Função responsável pela disponibilização de
+// de informação relativa ao utilizador
+//////////////////////////////////////////////
+function loadUserStats()
+{
+	var name = readCookie('name');
+	var nMessages = 0;
+	var conteudo = "";
+	
+	conteudo = '<a onclick="sair();" href="#">Sair</a><br>' +
+			   name + '<br>' +
+			   '<a href="#">Dados de utilizador</a><br>' +
+		       '<a href="#">Tem ' + nMessages + ' mensagens novas</a><br>';
+			   
+	return conteudo;
+}
+
+//////////////////////////////////////////////
 // preenche uma caixa de combinação
 // e define-lhe um título
 //////////////////////////////////////////////
-function populateComboBox(default_value, name, title, fields)
+function populateComboBox(default_value, name, title, fields, action)
 {
+	//var action = "alert('cliquei')";
+	//alert(default_value);
 	//alert('começou a preencher a combo');
-	var combo = title + ': <select size="1" id ="' + name + '" name="' + name + '" value="' + default_value + '">';
+	
+	var combo = title + ': <select name="' + name + '" id="' + name + '" size="1" ' + action + ' value="' + default_value + '">';
+	//<select name="example" size="1" onchange="location=this.options[this.selectedIndex].value">
+	
+
 	
 	for (i=0;i < fields.length;i++) {
 		combo = combo + '<option value="' + fields[i].split(';')[0] + '">' + fields[i].split(';')[1] + '</option>';
@@ -60,7 +70,7 @@ function validarSessao() {
 	if ( autenticado == 1 ) {
 		// se a página for o index vai para entrada
 		if ( index >= 0 ) {
-			window.location = PAGINA_ENTRADA;
+			//window.location = PAGINA_ENTRADA;
 		}
 	} else {
 		// se a página não for o index vai para o index

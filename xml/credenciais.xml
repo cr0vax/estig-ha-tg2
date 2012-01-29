@@ -5,6 +5,15 @@
 	<USER>
 		<login>bmoreira</login>
 		<name>Bruno Alexandre da Silva Moreira</name>
+		<numero>6170</numero>
+		<password>123</password>
+		<usertype>student</usertype>
+	</USER>
+	
+	<USER>
+		<login>lcosta</login>
+		<name>Luís Costa</name>
+		<numero>6032</numero>
 		<password>123</password>
 		<usertype>student</usertype>
 	</USER>
@@ -12,6 +21,7 @@
 	<USER>
 		<login>jbarros</login>
 		<name>João Paulo Barros</name>
+		<numero>800110</numero>
 		<password>123</password>
 		<usertype>coordinator</usertype>
 	</USER>
@@ -19,6 +29,7 @@
 	<USER>
 		<login>jribeiro</login>
 		<name>José Afonso Ribeiro</name>
+		<numero>900117</numero>
 		<password>123</password>
 		<usertype>employee</usertype>
 	</USER>
