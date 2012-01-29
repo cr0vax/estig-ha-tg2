@@ -94,6 +94,13 @@
 	border-bottom: thin solid #000000;
 }
 
+.titulo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	font-style: bold;
+	padding-bottom:20px;
+}
+
 #help {
 	background-color: #FF3300;
 	background-repeat: repeat-x;
