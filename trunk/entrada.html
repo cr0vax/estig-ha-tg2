@@ -11,17 +11,25 @@
     Creditação</title>
     <link href="./css/default.css" rel="stylesheet" type="text/css" />
     <script language="javascript" type="text/javascript"
+    src="./scripts/xml.js"></script>
+	<script language="javascript" type="text/javascript"
     src="./scripts/cookies.js"></script>
-    <script language="javascript" type="text/javascript"
-    src="./scripts/userstats.js"></script>
     <script language="javascript" type="text/javascript"
     src="./scripts/menu.js"></script>
     <script language="javascript" type="text/javascript"
     src="./scripts/entrada.js"></script>
     <script language="javascript" type="text/javascript"
     src="./scripts/geral.js"></script>
+	<script language="javascript" type="text/javascript"
+    src="./scripts/requerimentos.js"></script>
+	<script language="javascript" type="text/javascript"
+    src="./scripts/detalhes_requerimento.js"></script>
+	<script language="javascript" type="text/javascript"
+    src="./scripts/submeter_requerimento.js"></script>
+	<script language="javascript" type="text/javascript"
+    src="./scripts/MPBackLinks.js"></script>
   </head>
-  <body style="background-color:#cccccc" onload="validarSessao()">
+  <body style="background-color:#cccccc" onload="validarSessao();loadContent();">
     <div id="main" align="center">
       <div id="container" style="width:952px">
         <div id="header" class="header">
@@ -36,25 +44,17 @@
           <div id="left_top" class="left_top">
             <div id="user_stats">
 				<div id="user_stats_content" class="text">
-				  <script language="javascript" type="text/javascript">
-					loadUserStats();
-				  </script>
 				</div>
             </div>
           </div>
           <br />
           <div id="menu" class="menu">
-			<div id="menu_content" class="text"><script language="javascript" type="text/javascript">loadMenu(readCookie('usertype'));</script></div>
+			<div id="menu_content" class="text"></div>
 		  </div>
         </div>
 		 <div id="content" class="content">
-			<div id="breadcrumbs"><script language="javascript" type="text/javascript">document.write(MPJSBackLinks());</script></div>
-			<div id="text" class="text">
-				<a href="#" onmousedown="help()" id="help">Ajuda</a>
-				<script language="javascript" type="text/javascript">
-				loadContent();
-			  </script>
-			</div>
+			<div id="breadcrumbs"></div>
+			<div id="text" class="text"></div>
 		</div>
         <div id="footer" class="footer">IPBEJA todos os direitos
         reservados!</div>

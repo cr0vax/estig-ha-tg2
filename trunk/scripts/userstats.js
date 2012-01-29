@@ -1,1 +1,0 @@
-function loadUserStats(){	var name = readCookie('name');	var nMessages = 0;	document.write('<a onclick="sair();" href="#">Sair</a><br>');	document.write(name + '<br>');	document.write('<a href="#">Dados de utilizador</a><br>');	document.write('<a href="#">Tem ' + nMessages + ' mensagens novas</a><br>');}

@@ -7,13 +7,13 @@
 		
 		<submenu>
 			<name>Consultar</name>
-			<url>consultar_requerimentos.html</url>
+			<url>consultaRequerimento</url>
 			<permissions>student;employee</permissions>
 		</submenu>
 		
 		<submenu>
 			<name>Submeter</name>
-			<url>submeter_requerimentos.html</url>
+			<url>submeterRequerimento</url>
 			<permissions>student</permissions>
 		</submenu>
 		
@@ -30,7 +30,7 @@
 		
 		<submenu>
 			<name>Consultar</name>
-			<url>consultar_pareceres.html</url>
+			<url>consultaRequerimento</url>
 			<permissions>coordinator</permissions>
 		</submenu>
 		
