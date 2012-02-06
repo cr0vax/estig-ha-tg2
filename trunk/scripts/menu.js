@@ -1,7 +1,5 @@
-	
+﻿	
 	function loadMenu(usertype) {
-	//TODO
-		//alert(usertype);
 		//valida o usertype
 		if ( usertype == null )
 		{
@@ -15,7 +13,7 @@
 		var menuFinal = "";
 		
 		for (i=0;i<x.length;i++){
-			// procura as permiss�es do tipo de utilizador passado
+			// procura as permissões do tipo de utilizador passado
 			var xmlSubmenus = x[i].getElementsByTagName("submenu");
 			for(z=0;z<xmlSubmenus.length;z++){
 				var xmlPermissions = xmlSubmenus[z].getElementsByTagName("permissions")[0].childNodes[0].nodeValue;

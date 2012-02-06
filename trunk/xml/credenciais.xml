@@ -12,6 +12,14 @@
 	
 	<USER>
 		<login>lcosta</login>
+		<name>Bruno Alexandre da Silva Moreira</name>
+		<numero>6032</numero>
+		<password>123</password>
+		<usertype>student</usertype>
+	</USER>
+	
+	<USER>
+		<login>lcosta</login>
 		<name>Luís Costa</name>
 		<numero>6032</numero>
 		<password>123</password>

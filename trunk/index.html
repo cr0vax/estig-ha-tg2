@@ -1,52 +1,46 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
-<html>
+ï»¿<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta name="generator"
-    content="HTML Tidy for Windows (vers 14 February 2006), see www.w3.org" />
-    <meta content="text/html; charset=iso-8859-1"
-    http-equiv="content-type" />
-    <title>IPBEJA - Sistema de Gestão de Processos de
-    Creditação</title>
+    <title>IPBEJA - Sistema de GestÃ£o Processos de CreditaÃ§Ã£o</title>
     <link href="./css/default.css" rel="stylesheet" type="text/css" />
-	<script language="javascript" type="text/javascript" src="./scripts/cookies.js"></script>
-	<script language="javascript" type="text/javascript" src="./scripts/index.js"></script>
-	<script language="javascript" type="text/javascript" src="./scripts/geral.js"></script>
-	<script language="javascript" type="text/javascript" src="./scripts/xml.js"></script>
+	<script type="text/javascript" src="./scripts/cookies.js"></script>
+	<script type="text/javascript" src="./scripts/index.js"></script>
+	<script type="text/javascript" src="./scripts/geral.js"></script>
+	<script type="text/javascript" src="./scripts/xml.js"></script>
   </head>
   <body style="background-color:#cccccc" onload="validarSessao()">
     <div id="main" align="center">
       <div id="container" style="width:952px">
         <div id="header" class="header">
           <div id="logo" class="logo">
-            <a href="index.html" title="IPBEJA Instituto Politécnico de Beja"><img src="./imagens/logo.png" /></a>
+            <a href="index.html" title="IPBEJA Instituto PolitÃ©ico de Beja"><img alt="Logo da estig" src="./imagens/logo.png" /></a>
           </div>
           <div id="banner" class="banner">
-            <img src="./imagens/banner.png" width="740" height="174" />
+            <img alt="Instituto PolitÃ©cnico de Beja" src="./imagens/banner.png" width="740" height="174" />
           </div>
         </div>
         
-        <div id="content" class="index_content">
+        <div id="content">
 			<div id="text" class="text">
-			<div id="help"><a href="#" id="help">Help me</a></div>
-			<p>Bem vindo ao Sistema de Gestão de Processos de Creditação.</p>
-			<p>Este tem como objectivo automatizar as actividades relacionadas com o processo de creditação, sendo possível executar todas as ações a este inerentes.</p>
+			<a href="#" id="help">Help me</a>
+			<p>Bem vindo ao Sistema de GestÃ£o de Processos de CreditaÃ§Ã£o</p>
+			<p>Este tem como objectivo automatizar as actividades relacionadas com o processo de creditaÃ§Ã£o sendo possÃ­vel executar todas as aÃ§Ãµes a este inerentes.</p>
 			</div>
 			
 			<div id="login" class="login">
-				<form method="POST">
+				<form method="post" action="#">
 					<div id="username" class="field">Utilizador: <input type="text" name="username" /></div>
 					<div id="password" class="field">Password: <input type="password" name="password" /></div>
 					
-					<input type="button" value="Autenticar" name="OK" onclick="login(username.value,password.value)" />
-					<p><span id="message" class="error"></span><p/>
-					<div id="recover_password" class="link"><a href="recover_password.html">Não consegue autenticar-se?</a></div>
+					<div id="btn_autenticar"><input type="button" value="Autenticar" name="OK" onclick="login(username.value,password.value)" /></div>
+					<div id="message" class="error"></div>
+					<div id="recover_password" class="link"><a href="recover_password.html">NÃ£o consegue autenticar-se?</a></div>
 				</form>
 			</div>
 		</div>
-        <div id="footer" class="footer">©2011 - Instituto Politécnico
-        de Beja</div>
+        <div id="footer" class="footer">2011 - Instituto PolitÃ©cnico de Beja</div>
       </div>
     </div>
   </body>

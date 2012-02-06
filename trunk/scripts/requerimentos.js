@@ -1,4 +1,4 @@
-//////////////////////////////////////////////
+ï»¿//////////////////////////////////////////////
 // TODO
 //
 //
@@ -6,7 +6,7 @@
 
 function comboCamposPesquisa(user_type, user_number, default_value)
 {
-	////alert('começou a gerar os campos da pesquisa');
+	////alert('comeÃ§ou a gerar os campos da pesquisa');
 	var fields = new Array();
 	var index = 0;
 	var action = "";
@@ -23,21 +23,21 @@ function comboCamposPesquisa(user_type, user_number, default_value)
 			}
 		}
 		
-		// define a ação da combobox
+		// define a aÃ§Ã£o da combobox
 		action = 'onchange="atualizaLista(\'' + user_type + '\',' + user_number + ', \'YEAR\', document.getElementById(\'field_filter\').value)"';
 	}
 	else
 	{
-		fields[0] = "NUMBER;Número do Processo";
-		fields[1] = "STUDENT;Número do Aluno";
+		fields[0] = "NUMBER;NÃºmero do Processo";
+		fields[1] = "STUDENT;NÃºmero do Aluno";
 		fields[2] = "NAME;Nome do Aluno";
 		fields[3] = "STATUS;Estado";
-		fields[4] = "SUBMIT_DATE;Data de Emissão";
+		fields[4] = "SUBMIT_DATE;Data de EmissÃ£o";
 		fields[5] = "LIMIT_DATE;Data Limite";
 		fields[6] = "ANSWER_DATE;Data de Resposta";
 	}
 	
-	// chama a função que preenche a combobox
+	// chama a funÃ§Ã£o que preenche a combobox
 	//alert('default_value: ' + default_value);
 	
 	return populateComboBox(default_value, 'field_filter', 'Pesquisa', fields, action);
@@ -49,7 +49,7 @@ function comboCamposPesquisa(user_type, user_number, default_value)
 //////////////////////////////////////////////
 function pesquisa(user_type, user_number, field, filter)
 {
-	////alert('começou a gerar a pesquisa');
+	////alert('comeÃ§ou a gerar a pesquisa');
 	/********************************
 	cria a funcionalidade de pesquisa
 	********************************/
@@ -62,7 +62,7 @@ function pesquisa(user_type, user_number, field, filter)
 		// adiciona a text box de pesquisa
 		pesquisa = pesquisa + '<input class="txt" id="filter" name="filter" type="text" value="' + filter + '">';
 							 
-		// adiciona o botão ok
+		// adiciona o botÃ£o ok
 		pesquisa = pesquisa + '<input class="btn" id="pesquisar" type="submit" value="Pesquisar" name="Pesquisar" ' +
 							  'onclick="atualizaLista(\'' + user_type + '\',' + user_number + ', document.getElementById(\'field_filter\').value, document.getElementById(\'filter\').value)">';
 	}
@@ -72,7 +72,7 @@ function pesquisa(user_type, user_number, field, filter)
 }
 
 //////////////////////////////////////////////
-// filtra a informação apresentada ao utilizador
+// filtra a informaÃ§Ã£o apresentada ao utilizador
 //
 //////////////////////////////////////////////
 function filtraInformacao(user_type, number, data)
@@ -82,21 +82,21 @@ function filtraInformacao(user_type, number, data)
 	// o aluno apenas pode ver os seus processos
 	switch (user_type) {
 		case 'student':
-			// só pode ver se pertencer a ele
+			// sÃ³ pode ver se pertencer a ele
 			if (data.getElementsByTagName("STUDENT")[0].childNodes[0].nodeValue == number)
 			{
 				canSee = true;			
 			}
 			break;
 		case 'employee':
-			// por defeito vê os para validar
+			// por defeito vÃª os para validar
 			if (data.getElementsByTagName("STATUS")[0].childNodes[0].nodeValue == 'Para Validar')
 			{
 				canSee = true;			
 			}
 			break;
 		case 'coordinator':
-			// por defeito vê os para parecer
+			// por defeito vÃª os para parecer
 			if (data.getElementsByTagName("STATUS")[0].childNodes[0].nodeValue == 'Para Parecer')
 			{
 				canSee = true;			
@@ -130,11 +130,11 @@ function getLista(field, filter, user_type, number)
 	tblOutput = '<table id="lista_processos" class="lista_processos">';
 	
 	tblHeader = '<tr>' +
-					'<td>Nº Processo</td>' +
-					'<td>Nº Aluno</td>' +
+					'<td>NÂº Processo</td>' +
+					'<td>NÂº Aluno</td>' +
 					'<td>Nome Aluno</td>' +
 					'<td>Estado</td>' +
-					'<td>Data Emissão</td>' +
+					'<td>Data EmissÃ£o</td>' +
 					'<td>Data Limite</td>' +
 					'<td>Data Resposta</td>' +
 				'</tr>'
@@ -159,12 +159,12 @@ function getLista(field, filter, user_type, number)
 			
 			if (x[i].getElementsByTagName(field)[0].childNodes[0].nodeValue == filter) {
 				
-				// Procura o cabeçalho do processo
+				// Procura o cabeÃ§alho do processo
 				tblRows = tblRows + tblData;
 			}
 		} else {
 		
-			// verifica se o utilizador pode ver a informação
+			// verifica se o utilizador pode ver a informaÃ§Ã£o
 			if ( filtraInformacao(user_type, number, x[i]) ) {
 				tblRows = tblRows + tblData;
 			}
@@ -173,9 +173,9 @@ function getLista(field, filter, user_type, number)
 		
 	}
 	
-	// verifica se foram encontradas rows com o critério, se não foram diz que não foram encotnrados resultados
+	// verifica se foram encontradas rows com o critÃ©rio, se nÃ£o foram diz que nÃ£o foram encotnrados resultados
 	if (tblRows.length <= 0) {
-		tblRows = '<tr><td colspan="7">Não foram encontrados resultados</td></tr>';
+		tblRows = '<tr><td colspan="7">NÃ£o foram encontrados resultados</td></tr>';
 	}
 
 	tblOutput = tblOutput + tblHeader + tblRows + '</table>';
@@ -185,7 +185,7 @@ function getLista(field, filter, user_type, number)
 
 //////////////////////////////////////////////
 // Atualiza a lista de processos com base em
-// em critérios e tipo de utilizador
+// em critÃ©rios e tipo de utilizador
 //////////////////////////////////////////////
 function atualizaLista(user_type, user_number, field, filter)
 {
@@ -218,12 +218,12 @@ function listaProcessos(user_type, user_number, field, filter)
 }
 
 //////////////////////////////////////////////
-// gera o esqueleto da página com os divs necessários
+// gera o esqueleto da pÃ¡gina com os divs necessÃ¡rios
 //////////////////////////////////////////////
 function desenhaEsqueleto(field, filter)
 {
 	
-	// verifica se o esqueleto a desenhar é do requerimento ou do detalhe
+	// verifica se o esqueleto a desenhar Ã© do requerimento ou do detalhe
 	if (field == "" && filter == "")
 	{
 		// esqueleto da lista de requerimentos
@@ -258,14 +258,14 @@ function desenhaEsqueleto(field, filter)
 //////////////////////////////////////////////
 function consultaRequerimento(field, filter)
 {
-	// se os fields não forem definidos coloa-os a ""
+	// se os fields nÃ£o forem definidos coloa-os a ""
 	field = field == undefined ? '' : field;
 	filter = filter == undefined ? '' : filter;
 
-	// desenha o esqueleto das divs da página
+	// desenha o esqueleto das divs da pÃ¡gina
 	desenhaEsqueleto(field, filter);
 	
-	// adiciona título
+	// adiciona tÃ­tulo
 	document.getElementById("titulo").innerHTML = "<h2>Consultar Requerimentos</h2>";
 
 	// adiciona lista de pesquisa
@@ -277,10 +277,10 @@ function consultaRequerimento(field, filter)
 //////////////////////////////////////////////
 function submeteRequerimento()
 {
-	// desenha o esqueleto das divs da página
+	// desenha o esqueleto das divs da pÃ¡gina
 	desenhaEsqueletoSubmissao();
 	
-	// adiciona título
+	// adiciona tÃ­tulo
 	document.getElementById("titulo").innerHTML = "<h2>Consultar Requerimentos</h2>";
 
 	// adiciona lista de pesquisa

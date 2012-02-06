@@ -2,6 +2,32 @@
 	    PAGE PARTS
 *************************/
 
+
+table, td, th 
+{
+	border:1px solid #000000;
+	border-collapse: collapse;
+	padding:3px 7px 2px 7px;
+	width:100%;
+}
+
+th 
+{
+	text-align:left;
+	padding-top:5px;
+	padding-bottom:4px;
+	background-color:#cccccc;
+	color:#fff;
+}
+
+fieldset {
+  padding: 1em;
+  text-align:left;
+  }
+
+input {
+  text-align:right;
+  }
 /* ENTRADA */
 .header{
 	background-color:#FFFFFF;
@@ -69,21 +95,18 @@
 }
 
 .lista_formacoes {
-	width:48%;
-	border-right: thin solid #000000;
-	border-top: thin solid #000000;
-	border-left: thin solid #000000;
-	border-bottom: thin solid #000000;
+	width:50%;
 	float:left;
 }
 
 .lista_anexos {
-	width:48%;
-	border-right: thin solid #000000;
-	border-top: thin solid #000000;
-	border-left: thin solid #000000;
-	border-bottom: thin solid #000000;
+	width:50%;
 	float:right;
+}
+
+.lista_ucs {
+	width:50%;
+	float:left;
 }
 
 .border {
@@ -118,11 +141,8 @@
 
 */
 /* INDEX */
-.index_content{
+#content{
 	background-color:#FFFFFF;
-	height:400px;
-	width:952px;
-	float:left;
 }
 
 .login{
