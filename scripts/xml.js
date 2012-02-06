@@ -1,5 +1,5 @@
-/******************************************************************
-	Funções que interagem com os ficheiros XML
+ï»¿/******************************************************************
+	FunÃ§Ãµes que interagem com os ficheiros XML
 ******************************************************************/
 
 var http_request = false;
@@ -9,10 +9,11 @@ var global_xmlMenu;
 var global_xmlMensagens;
 var global_xmlContactos;
 var global_xmlRequerimentos;
+var global_xmlUnidadesCurriculares;
 
 //////////////////////////////////////////////
 // abre ficheiro XML
-// e define-lhe um título
+// e define-lhe um tÃ­tulo
 //////////////////////////////////////////////
 function makeRequest(url) {
 	
@@ -44,7 +45,7 @@ function makeRequest(url) {
 	
 //////////////////////////////////////////////
 // abre ficheiro XML
-// e define-lhe um título
+// e define-lhe um tÃ­tulo
 //////////////////////////////////////////////
 function readXML(xmlFile)
 {
@@ -65,5 +66,6 @@ function inicializaFicheirosXML()
 	global_xmlRequerimentos = readXML('requerimentos.xml');
 	global_xmlMenu = readXML('menu.xml');
 	global_xmlMensagens = readXML('mensagens.xml');
-	global_xmlContactos = readXML('contactos.xml');;
+	global_xmlContactos = readXML('contactos.xml');
+	global_xmlUnidadesCurriculares = readXML('uc.xml');
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<REGISTRATIONS>
+	<STUDENT>
+		<NUMBER>6170</NUMBER>
+		
+		<CLASSES>
+			<CLASS>Segurança de Redes e Comunicação</CLASS>
+			<CLASS>Análise Matemática</CLASS>
+			<CLASS>Portfólio</CLASS>
+			<CLASS>Bases de Dados 2</CLASS>
+			<CLASS>Hipermédia e Acessibilidade</CLASS>
+		</CLASSES>
+	</STUDENT>
+	
+	<STUDENT>
+		<NUMBER>6032</NUMBER>
+		
+		<CLASSES>
+			<CLASS>Segurança de Redes e Comunicação</CLASS>
+			<CLASS>Portfólio</CLASS>
+			<CLASS>Bases de Dados 2</CLASS>
+			<CLASS>Hipermédia e Acessibilidade</CLASS>
+		</CLASSES>
+	</STUDENT>
+</REGISTRATIONS>

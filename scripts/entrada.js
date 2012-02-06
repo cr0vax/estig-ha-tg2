@@ -1,4 +1,4 @@
-
+Ôªø
 
 
 function conteudo(pagina)
@@ -19,15 +19,15 @@ function conteudo(pagina)
 			conteudo = 'two'; 
 			break;
 		default: 
-			conteudo = '<p>Bem vindo ao Sistema de Gest„o de Processos de CreditaÁ„o.</p>' +
-					   '<p>Este tem como objectivo automatizar as actividades relacionadas com o processo de creditaÁ„o, sendo possÌvel executar todas as aÁıes a este inerentes.</p>'
+			conteudo = '<p>Bem vindo ao Sistema de Gest√£o de Processos de Credita√ß√£o.</p>' +
+					   '<p>Este tem como objectivo automatizar as actividades relacionadas com o processo de credita√ß√£o, sendo poss√≠vel executar todas as a√ß√µes a este inerentes.</p>'
 	}
 	return conteudo;
 }
 
 
 //////////////////////////////////
-// TODO ponto de partida para fazer o load content das p·ginas
+// TODO ponto de partida para fazer o load content das p√°ginas
 //////////////////////////////////
 function loadContent()
 {
@@ -47,7 +47,7 @@ function loadContent()
 	//alert('vou inicializar os breadcrumbs');
 	document.getElementById("breadcrumbs").innerHTML = MPJSBackLinks();
 	
-	// conte˙do da p·gina
-	//alert('vou inicializar o conte˙do da p·gina');
+	// conte√∫d da p√°gina
+	//alert('vou inicializar o conte√∫do da p√°igna');
 	document.getElementById("text").innerHTML = conteudo();
 }

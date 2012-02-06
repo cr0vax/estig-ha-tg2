@@ -1,39 +1,39 @@
-const PAGINA_ENTRADA = "entrada.html";
+Ôªøconst PAGINA_ENTRADA = "entrada.html";
 const PAGINA_INICIAL = "index.html";
 const DOCS_PATH = "./docs/";
 const XML_PATH = './xml/';
 const IMAGENS_PATH = './imagens/';
 
 //////////////////////////////////////////////
-// FunÁ„o respons·vel pela disponibilizaÁ„o de
-// ajuda na p·gina
+// Fun√ß√£o respons√°vel pela disponibiliza√ß√£o de
+// ajuda na p√°gina
 //////////////////////////////////////////////
 function help()
 {
 	alert('TODO');
 }
 
-//////////////////////////////////////////////
-// FunÁ„o respons·vel pela disponibilizaÁ„o de
-// de informaÁ„o relativa ao utilizador
-//////////////////////////////////////////////
-function getSelectedRadioValue(buttonGroup) {
-   // returns the value of the selected radio button or "" if no button is selected
-   var i = getSelectedRadio(buttonGroup);
-   if (i == -1) {
-      return "";
-   } else {
-      if (buttonGroup[i]) { // Make sure the button group is an array (not just one button)
-         return buttonGroup[i].value;
-      } else { // The button group is just the one button, and it is checked
-         return buttonGroup.value;
-      }
-   }
-} // Ends the "getSelectedRadioValue" function
+////////////////////////////////////////
+// Valida a qual o valor seleccionado nos radio buttons
+////////////////////////////////////////
+function validaRadioSeleccionado(id)
+{
+	var radioGroup = document.getElementsByName(id);
+	var return_id;
+	
+	// encontra o valor seleccionado
+	for (var x = 0; x < radioGroup.length; x ++) {
+		if (radioGroup[x].checked) {
+		  return_id =  radioGroup[x].value;
+		}
+	}
+	
+	return return_id;
+}
 
 //////////////////////////////////////////////
-// FunÁ„o respons·vel pela disponibilizaÁ„o de
-// de informaÁ„o relativa ao utilizador
+// Fun√ß√£o respons√°vel pela disponibiliza√ß√£o de
+// de informa√ß√£o relativa ao utilizador
 //////////////////////////////////////////////
 function loadUserStats()
 {
@@ -50,19 +50,14 @@ function loadUserStats()
 }
 
 //////////////////////////////////////////////
-// preenche uma caixa de combinaÁ„o
-// e define-lhe um tÌtulo
+// preenche uma caixa de combina√ß√£o
+// e define-lhe um t√≠tulo
 //////////////////////////////////////////////
 function populateComboBox(default_value, name, title, fields, action)
 {
-	//var action = "alert('cliquei')";
-	//alert(default_value);
-	//alert('comeÁou a preencher a combo');
 	
-	var combo = title + ': <select name="' + name + '" id="' + name + '" size="1" ' + action + ' value="' + default_value + '">';
-	//<select name="example" size="1" onchange="location=this.options[this.selectedIndex].value">
-	
-
+	var combo = '<label for="' + name + '">' + title + ':</label>' +
+				'<select name="' + name + '" id="' + name + '" size="1" ' + action + ' value="' + default_value + '">';
 	
 	for (i=0;i < fields.length;i++) {
 		combo = combo + '<option value="' + fields[i].split(';')[0] + '">' + fields[i].split(';')[1] + '</option>';
@@ -75,23 +70,23 @@ function populateComboBox(default_value, name, title, fields, action)
 
 
 //////////////////////////////////////////////
-// Valida se a sess„o est· iniciada com base
-// no cookie, se esta j· estiver iniciada passa
-// para a p·gina entrada.html
+// Valida se a sess√£o est√° iniciada com base
+// no cookie, se esta j√° estiver iniciada passa
+// para a p√°gina entrada.html
 //////////////////////////////////////////////
 function validarSessao() {
 	var autenticado = readCookie('authenticatted');
 	
 	var index = document.URL.indexOf(PAGINA_INICIAL);
 	
-	// valida se h· autenticaÁ„o v·lida
+	// valida se h√° autentica√ß√£o v√°lida
 	if ( autenticado == 1 ) {
-		// se a p·gina for o index vai para entrada
+		// se a p√°gina for o index vai para entrada
 		if ( index >= 0 ) {
 			//window.location = PAGINA_ENTRADA;
 		}
 	} else {
-		// se a p·gina n„o for o index vai para o index
+		// se a p√°gina n√£o for o index vai para o index
 		if ( index < 0 ) {
 			window.location = PAGINA_INICIAL;
 		}
@@ -99,7 +94,7 @@ function validarSessao() {
 }
 
 //////////////////////////////////////////////
-// Termina a sess„o do utilizador
+// Termina a sess√£o do utilizador
 //////////////////////////////////////////////
 function sair()
 {

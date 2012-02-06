@@ -1,5 +1,5 @@
-//////////////////////////////////////////////
-// gera lista formações
+ï»¿//////////////////////////////////////////////
+// gera lista formaÃ§Ãµes
 //////////////////////////////////////////////
 function geraListaFormacoes(processChilds)
 {
@@ -28,33 +28,39 @@ function geraDetalheRequerimento(number, year)
 	//alert(x.length);
 	var htmlOutput = "";
 	
-	// procura nos processos o processo em questão
+	// procura nos processos o processo em questÃ£o
 	for (i=0;i<x.length;i++) {
 		var xmlYear = x[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue;
 		var xmlNumber = x[i].getElementsByTagName("NUMBER")[0].childNodes[0].nodeValue;
 		
-		// verifica se é coincidente com o numero e ano passados por parametro
+		// verifica se Ã© coincidente com o numero e ano passados por parametro
 		if ( xmlYear == year && xmlNumber == number ) {
 		
 			var processo = x[i];
 			
-			// imprime o cabeçalho do processo
+			// imprime o cabeÃ§aalho do processo
 			document.getElementById("n_processo").innerHTML = '<b>Processo:</b> ' + xmlNumber + '/' + xmlYear;
 			document.getElementById("data").innerHTML = '<b>Data:</b> ' + processo.getElementsByTagName("SUBMIT_DATE")[0].childNodes[0].nodeValue;
 			document.getElementById("curso").innerHTML = '<b>Curso:</b> ' + processo.getElementsByTagName("COURSE")[0].childNodes[0].nodeValue;
 			document.getElementById("nome").innerHTML = '<b>Nome:</b> ' + processo.getElementsByTagName("NAME")[0].childNodes[0].nodeValue;
 			
-			// para cada disciplina imprime as formações
+			// para cada disciplina imprime as formaÃ§Ãµes
 			var disciplinas = processo.getElementsByTagName("CLASS");
 			
 			for (j=0;j<disciplinas.length;j++)
 			{
 				htmlOutput = htmlOutput + '<br><hr><b>Unidade Curricular: </b>' + disciplinas[j].getElementsByTagName("NAME")[0].childNodes[0].nodeValue; + '<br>';
 				
-				// escreve o cabeçalho
-				htmlOutput = htmlOutput + '<table border="1" width="100%"><tr><td>Tipo de Formação</td><td>Descrição</td><td>Anexos</td></tr>';
+				// escreve o cabeÃ§alho
+				htmlOutput = htmlOutput + 
+					'<table border="1" width="100%">' +
+						'<tr>' +
+							'<th>Tipo de FormaÃ§Ãµes</th>' +
+							'<th>DescriÃ§Ã£o</th>' +
+							'<th>Anexos</th>' +
+						'</tr>';
 				
-				// formações
+				// formaÃ§Ãµes
 				var formacoes = disciplinas[j].getElementsByTagName("FORMATION");
 				
 				for (z=0;z<formacoes.length;z++)
@@ -89,13 +95,13 @@ function geraDetalheRequerimento(number, year)
 		}
 	}
 	
-	// passa à próxima formação
+	// passa  Ã  prÃ³xima formaÃ§Ã£o
 	document.getElementById("formacoes").innerHTML = htmlOutput;
 	
 }
 
 //////////////////////////////////////////
-// Desenha o esqueleto da página de submissão
+// Desenha o esqueleto da pÃ¡gina de submissÃ£o
 //////////////////////////////////////////
 function desenhaEsqueletoSubmissao()
 {
@@ -114,13 +120,13 @@ function desenhaEsqueletoSubmissao()
 }
 
 //////////////////////////////////////////////
-// gera o conteúdo 
+// gera o conteÃºdo
 //////////////////////////////////////////////
 function geraConteudoDetalheRequerimento(number, year)
 {
 	desenhaEsqueletoSubmissao()
 	
-	// adiciona título
+	// adiciona tÃ­tulo
 	document.getElementById("titulo").innerHTML = "<h2>Detalhes do requerimento</h2>";
 	
 	// gera os detalhes do processo

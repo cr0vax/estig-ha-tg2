@@ -1,4 +1,4 @@
-/*
+﻿/*
 http://www.quirksmode.org/js/cookies.html
 */
 
