@@ -88,17 +88,22 @@ function submeterRequerimentoDesenhaEsqueleto(passo)
 		case 3:  // PASSO 3
 			document.getElementById("text").innerHTML = 
 				'<a id="help" onmousedown="help(\'submeteRequerimento_3\')" href="#">Ajuda</a>' + 
-				'<div id="processo">' +
+					'<div id="processo">' +
 					'<div id="titulo" class="titulo"></div>' +
 					'<div id="passos"></div>' +
 					'<br />' +
-					'<div id="conteudo"></div>' +
-					'<br />' +
-					'<div id="botao_continuar">' +
-						'<input type="button" onclick="submeterRequerimento(2)" value="Voltar">' +
-						'<input type="button" onclick="submeterRequerimento(4)" value="Concluir">' +
-					'</div>' +
-				'</div>'
+						'<div id="cabecalho">' +
+							'<div id="n_processo"></div>' +
+							'<div id="data"></div>' +
+							'<div id="curso"></div>' +
+							'<div id="nome"></div>' +
+						'</div>' +
+						'<div id="formacoes"></div>' +
+						'<div id="botoes">' +
+							'<input type="button" onclick="submeterRequerimento(2)" value="Voltar">' +
+							'<input type="button" onclick="submeterRequerimento(4)" value="Concluir">' +
+						'</div>' +
+					'</div>'
 			break;
 			
 		default: // PASSO 1
