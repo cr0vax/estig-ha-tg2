@@ -22,27 +22,43 @@ function geraListaFormacoes(processChilds)
 //////////////////////////////////////////////
 // gera detalhes do requerimento
 //////////////////////////////////////////////
-function geraDetalheRequerimento(number, year)
+function geraDetalheRequerimento(number, year, process)
 {
-	var x = global_xmlRequerimentos.getElementsByTagName("PROCESS");
+	// se não foi passado um processo pesquisa-o nos gerais
+	if (!process)
+	{
+		var x = global_xmlRequerimentos.getElementsByTagName("PROCESS");
+	}
+	else
+	{
+		var x = process;
+	}
+	
 	//alert(x.length);
+	
 	var htmlOutput = "";
 	
 	// procura nos processos o processo em questão
 	for (i=0;i<x.length;i++) {
-		var xmlYear = x[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue;
-		var xmlNumber = x[i].getElementsByTagName("NUMBER")[0].childNodes[0].nodeValue;
-		
+	
+		if (!process)
+		{
+			var xmlYear = x[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue;
+			var xmlNumber = x[i].getElementsByTagName("NUMBER")[0].childNodes[0].nodeValue;
+		}
 		// verifica se é coincidente com o numero e ano passados por parametro
-		if ( xmlYear == year && xmlNumber == number ) {
+		if ( (xmlYear == year && xmlNumber == number) || process ) {
 		
 			var processo = x[i];
 			
-			// imprime o cabeçaalho do processo
-			document.getElementById("n_processo").innerHTML = '<b>Processo:</b> ' + xmlNumber + '/' + xmlYear;
-			document.getElementById("data").innerHTML = '<b>Data:</b> ' + processo.getElementsByTagName("SUBMIT_DATE")[0].childNodes[0].nodeValue;
-			document.getElementById("curso").innerHTML = '<b>Curso:</b> ' + processo.getElementsByTagName("COURSE")[0].childNodes[0].nodeValue;
-			document.getElementById("nome").innerHTML = '<b>Nome:</b> ' + processo.getElementsByTagName("NAME")[0].childNodes[0].nodeValue;
+			// imprime o cabeçaalho do processo, apenas se não foi passado um processo
+			if (!process)
+			{
+				document.getElementById("n_processo").innerHTML = '<b>Processo:</b> ' + xmlNumber + '/' + xmlYear;
+				document.getElementById("data").innerHTML = '<b>Data:</b> ' + processo.getElementsByTagName("SUBMIT_DATE")[0].childNodes[0].nodeValue;
+				document.getElementById("curso").innerHTML = '<b>Curso:</b> ' + processo.getElementsByTagName("COURSE")[0].childNodes[0].nodeValue;
+				document.getElementById("nome").innerHTML = '<b>Nome:</b> ' + processo.getElementsByTagName("NAME")[0].childNodes[0].nodeValue;
+			}
 			
 			// para cada disciplina imprime as formações
 			var disciplinas = processo.getElementsByTagName("CLASS");

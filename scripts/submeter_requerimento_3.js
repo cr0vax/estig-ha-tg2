@@ -10,9 +10,10 @@ function desenhaPasso3()
 	
 	//lista_formacao_realizada
 	//geraListaFormacoesAssociadas(aluno);
+	geraDetalheRequerimento(0, 0, novasDisciplinas);
 	
 	// adiciona passos ao documento
-	document.getElementById("passos").innerHTML = geraPassos(2);
+	document.getElementById("passos").innerHTML = geraPassos(3);
 	
 	// adiciona ao documento o título
 	document.getElementById("titulo").innerHTML = TITULO_PASSO3;

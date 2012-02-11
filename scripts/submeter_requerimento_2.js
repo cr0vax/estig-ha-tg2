@@ -12,13 +12,11 @@ function associaFormacaoRealizada(id_formacao, aluno)
 		// adiciona às disciplinas as formações realizadas
 		var y = novasFormacoes.getElementsByTagName("FORMATION")[id_formacao];
 		
-		alert(y.length);
-		
 		// coloca em x as disciplinas selecionadas
 		var x = novasDisciplinas.getElementsByTagName("CLASS")[id_uc];
 		
 		// faz o append da formação à uc
-		x.appendChild(y.cloneNode(true));		
+		x.appendChild(y.cloneNode(true));
 	}
 	
 	// atualiza a lista
