@@ -62,10 +62,16 @@ function readXML(xmlFile)
 //////////////////////////////////////////////
 function inicializaFicheirosXML()
 {
-	//alert('A inicializar ficheiros XML');
-	global_xmlRequerimentos = readXML('requerimentos.xml');
-	global_xmlMenu = readXML('menu.xml');
-	global_xmlMensagens = readXML('mensagens.xml');
-	global_xmlContactos = readXML('contactos.xml');
-	global_xmlUnidadesCurriculares = readXML('uc.xml');
+	if ( !global_xmlRequerimentos &&
+		 !global_xmlMenu &&
+		 !global_xmlMensagens &&
+		 !global_xmlContactos &&
+		 !global_xmlUnidadesCurriculares)
+	{
+			global_xmlRequerimentos = readXML('requerimentos.xml');
+			global_xmlMenu = readXML('menu.xml');
+			global_xmlMensagens = readXML('mensagens.xml');
+			global_xmlContactos = readXML('contactos.xml');
+			global_xmlUnidadesCurriculares = readXML('uc.xml');
+	}
 }

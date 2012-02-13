@@ -30,7 +30,7 @@ function comboCamposPesquisa(user_type, user_number, default_value)
 	{
 		fields[0] = "NUMBER;Número do Processo";
 		fields[1] = "STUDENT;Número do Aluno";
-		fields[2] = "NAME;Nome do Aluno";
+		fields[2] = "STUDENT_NAME;Nome do Aluno";
 		fields[3] = "STATUS;Estado";
 		fields[4] = "SUBMIT_DATE;Data de Emissão";
 		fields[5] = "LIMIT_DATE;Data Limite";
@@ -111,7 +111,7 @@ function filtraInformacao(user_type, number, data)
 // gera lista dos processos
 //
 //////////////////////////////////////////////
-function getLista(field, filter, user_type, number)
+function getLista(field, filter, user_type, number, action)
 {
 	//alert('Entrou no getlista de processos');
 	
@@ -122,21 +122,24 @@ function getLista(field, filter, user_type, number)
 	var tblHeader;
 	var tblRows = "";
 	var rowData;
-	//alert(x.length);
 	
-	//alert('field:' + field);
-	//alert('filter:' + filter);
+	// define a ação a ser realizada
+	if (!action)
+	{
+		action = 'geraConteudoDetalheRequerimento';
+	}
+	
 	
 	tblOutput = '<table id="lista_processos" class="lista_processos">';
 	
 	tblHeader = '<tr>' +
-					'<td>Nº Processo</td>' +
-					'<td>Nº Aluno</td>' +
-					'<td>Nome Aluno</td>' +
-					'<td>Estado</td>' +
-					'<td>Data Emissão</td>' +
-					'<td>Data Limite</td>' +
-					'<td>Data Resposta</td>' +
+					'<th>Nº Processo</th>' +
+					'<th>Nº Aluno</th>' +
+					'<th>Nome Aluno</th>' +
+					'<th>Estado</th>' +
+					'<th>Data Emissão</th>' +
+					'<th>Data Limite</th>' +
+					'<th>Data Resposta</th>' +
 				'</tr>'
 	
  	for (i=0;i<x.length;i++) {
@@ -144,15 +147,21 @@ function getLista(field, filter, user_type, number)
 		var parametros = x[i].getElementsByTagName("NUMBER")[0].childNodes[0].nodeValue + 
 				   ',' + x[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue
 	
-		tblData = '<tr><td><a href="#" onclick="geraConteudoDetalheRequerimento(' + parametros + ')">' +
+		tblData = '<tr><td><a href="#" onclick="' + action + '(' + parametros + ')">' +
 			x[i].getElementsByTagName("NUMBER")[0].childNodes[0].nodeValue + '/' +
 			x[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue + '</a></td><td>' + 
 			x[i].getElementsByTagName("STUDENT")[0].childNodes[0].nodeValue + '</td><td>' + 
-			x[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue + '</td><td>' + 
+			x[i].getElementsByTagName("STUDENT_NAME")[0].childNodes[0].nodeValue + '</td><td>' + 
 			x[i].getElementsByTagName("STATUS")[0].childNodes[0].nodeValue + '</td><td>' + 
 			x[i].getElementsByTagName("SUBMIT_DATE")[0].childNodes[0].nodeValue + '</td><td>' + 
-			x[i].getElementsByTagName("LIMIT_DATE")[0].childNodes[0].nodeValue + '</td><td>' + 
-			x[i].getElementsByTagName("ANSWER_DATE")[0].childNodes[0].nodeValue + '</td>';
+			x[i].getElementsByTagName("LIMIT_DATE")[0].childNodes[0].nodeValue + '</td><td>'
+			
+			if (x[i].getElementsByTagName("ANSWER_DATE")[0].childNodes[0].nodeValue)
+			{
+				tblData = tblData + x[i].getElementsByTagName("ANSWER_DATE")[0].childNodes[0].nodeValue;
+			}
+			
+		tblData = tblData + '</td>';
 		
 		if (filter.length != 0 && field.length != 0) {
 			var a = x[i].getElementsByTagName(field)[0].childNodes[0].nodeValue;
@@ -206,7 +215,7 @@ function atualizaPesquisa(user_type, user_number, field, filter)
 //////////////////////////////////////////////
 // lista os processos e suas funcionalidades
 //////////////////////////////////////////////
-function listaProcessos(user_type, user_number, field, filter)
+function listaProcessos(user_type, user_number, field, filter, action)
 {
 	////alert("entrou na lista de processos");
 	
@@ -214,7 +223,7 @@ function listaProcessos(user_type, user_number, field, filter)
 	document.getElementById("pesquisa").innerHTML = pesquisa(user_type, user_number, field, filter);
 	
 	// adiciona a lista de processos
-	document.getElementById("lista_processos").innerHTML = getLista(field, filter, user_type, user_number);
+	document.getElementById("lista_processos").innerHTML = getLista(field, filter, user_type, user_number, action);
 }
 
 //////////////////////////////////////////////

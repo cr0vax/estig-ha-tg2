@@ -288,6 +288,9 @@ function desenhaPasso1()
 {
 	const TITULO_PASSO1 = "Submeter Requerimento - Passo 1";
 	
+	// adiciona descrição do passo
+	document.getElementById("descricao").innerHTML = "Submissão das formações";
+	
 	//lista_formacao_realizada
 	geraListaFormacaoRealizada();
 	

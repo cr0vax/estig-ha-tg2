@@ -31,7 +31,8 @@ function geraDetalheRequerimento(number, year, process)
 	}
 	else
 	{
-		var x = process;
+		//var x = process;
+		var x = process.getElementsByTagName("PROCESS");
 	}
 	
 	//alert(x.length);
@@ -57,7 +58,7 @@ function geraDetalheRequerimento(number, year, process)
 				document.getElementById("n_processo").innerHTML = '<b>Processo:</b> ' + xmlNumber + '/' + xmlYear;
 				document.getElementById("data").innerHTML = '<b>Data:</b> ' + processo.getElementsByTagName("SUBMIT_DATE")[0].childNodes[0].nodeValue;
 				document.getElementById("curso").innerHTML = '<b>Curso:</b> ' + processo.getElementsByTagName("COURSE")[0].childNodes[0].nodeValue;
-				document.getElementById("nome").innerHTML = '<b>Nome:</b> ' + processo.getElementsByTagName("NAME")[0].childNodes[0].nodeValue;
+				document.getElementById("nome").innerHTML = '<b>Nome:</b> ' + processo.getElementsByTagName("STUDENT_NAME")[0].childNodes[0].nodeValue;
 			}
 			
 			// para cada disciplina imprime as formações

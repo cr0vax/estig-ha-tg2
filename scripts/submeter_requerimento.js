@@ -2,7 +2,9 @@
 var unidadesCurriculares = new Array();
 var novasFormacoes;
 var novasDisciplinas;
+var novoProcesso;
 var temp;
+var n_requerimento = 145;
 
 /////////////////////////////////
 // gera os passos
@@ -47,6 +49,9 @@ function adicionarObjetos(passo)
 		case 3:
 			desenhaPasso3();
 			break;
+		case 4:
+			desenhaPasso4();
+			break;
 		default:
 			desenhaPasso1();
 			break;
@@ -66,12 +71,13 @@ function submeterRequerimentoDesenhaEsqueleto(passo)
 	{
 		case 2:  // PASSO 2
 			document.getElementById("text").innerHTML = 
-				'<a id="help" onmousedown="help(\'submeteRequerimento_2\')" href="#">Ajuda</a>' + 
+				'<a title="Ajuda"  id="help" onmousedown="help(\'submeteRequerimento_2\')" href="#">Ajuda</a>' + 
 				'<div id="processo">' +
 					'<div id="titulo" class="titulo"></div>' +
 					'<div id="passos"></div>' +
 					'<br />' +
 					'<div id="conteudo">' +
+					'<div id="descricao"></div>' +
 						'<fieldset>' +
 						'<div id="lista_unidades_curriculares" class="lista_ucs"></div>' +
 						'<div id="lista_formacoes_associadas" class="lista_formacoes"></div>' +
@@ -87,16 +93,13 @@ function submeterRequerimentoDesenhaEsqueleto(passo)
 			
 		case 3:  // PASSO 3
 			document.getElementById("text").innerHTML = 
-				'<a id="help" onmousedown="help(\'submeteRequerimento_3\')" href="#">Ajuda</a>' + 
+				'<a title="Ajuda" id="help" onmousedown="help(\'submeteRequerimento_3\')" href="#">Ajuda</a>' + 
 					'<div id="processo">' +
 					'<div id="titulo" class="titulo"></div>' +
 					'<div id="passos"></div>' +
 					'<br />' +
 						'<div id="cabecalho">' +
-							'<div id="n_processo"></div>' +
-							'<div id="data"></div>' +
-							'<div id="curso"></div>' +
-							'<div id="nome"></div>' +
+							'<div id="descricao"></div>' +
 						'</div>' +
 						'<div id="formacoes"></div>' +
 						'<div id="botoes">' +
@@ -106,14 +109,26 @@ function submeterRequerimentoDesenhaEsqueleto(passo)
 					'</div>'
 			break;
 			
+		case 4:  // Conclusão
+			document.getElementById("text").innerHTML = 
+				'<a title="Ajuda" id="help" onmousedown="help(\'submeteRequerimento_4\')" href="#">Ajuda</a>' + 
+					'<div id="processo">' +
+					'<div id="titulo" class="titulo"></div>' +
+					'<div id="passos"></div>' +
+					'<br />' +
+						'<div id="mensagem_conclusao"></div>' +
+					'</div>'
+			break;
+			
 		default: // PASSO 1
 			document.getElementById("text").innerHTML = 
-				'<a id="help" onmousedown="help(\'submeteRequerimento_1\')" href="#">Ajuda</a>' + 
+				'<a title="Ajuda" id="help" onmousedown="help(\'submeteRequerimento_1\')" href="#">Ajuda</a>' + 
 				'<div id="processo">' +
 					'<div id="titulo" class="titulo"></div>' +
 					'<div id="passos"></div>' +
 					'<br />' +
 					'<div id="conteudo">' +
+						'<div id="descricao"></div>' +
 						'<fieldset>' +
 						'<div id="lista_formacao_realizada" class="lista_formacoes"></div>' +
 						'<div id="lista_anexos_associados" class="lista_anexos"></div>' +
@@ -138,10 +153,14 @@ function submeterRequerimentoDesenhaEsqueleto(passo)
 function submeterRequerimento(passo)
 {
 	// create temporary XML
-	if (!(temp) && !novasFormacoes) {
+	if (!passo) {
 		temp = global_xmlRequerimentos;
 		novasFormacoes = temp.createElement("FORMATIONS");
 		novasDisciplinas = temp.createElement("CLASSES");
+		
+		// cria o novo processo
+		novoProcesso = temp.createElement("REQUESTS");
+		novoProcesso.appendChild(temp.createElement("PROCESS"));
 	}
 	
 	// gera o esqueleto
