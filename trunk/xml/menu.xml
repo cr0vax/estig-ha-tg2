@@ -19,7 +19,7 @@
 		
 		<submenu>
 			<name>Validar</name>
-			<url>validar_requerimentos.html</url>
+			<url>validarRequerimento</url>
 			<permissions>employee</permissions>
 		</submenu>
 	</menu>

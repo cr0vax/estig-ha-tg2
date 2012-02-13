@@ -87,7 +87,7 @@ function geraListaFormacoesAssociadas(aluno, id_uc)
 				'<table>' +
 					'<tr>' +
 						'<th>Formações Associadas</th>' +
-						'<th>&nbsp;</th>' +
+						'<th></th>' +
 					'</tr>'
 				
 				if (novasDisciplinas && id_uc) {
@@ -258,6 +258,9 @@ function desenhaPasso2()
 {
 	const TITULO_PASSO2 = "Submeter Requerimento - Passo 2";
 	var aluno = readCookie('number');
+	
+	// adiciona descrição do passo
+	document.getElementById("descricao").innerHTML = "Associação de formações a disciplinas";
 	
 	//lista_formacao_realizada
 	geraListaUnidadesCurriculares(aluno);
