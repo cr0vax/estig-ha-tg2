@@ -10,6 +10,7 @@ var global_xmlMensagens;
 var global_xmlContactos;
 var global_xmlRequerimentos;
 var global_xmlUnidadesCurriculares;
+var global_xmlProfessores;
 
 //////////////////////////////////////////////
 // abre ficheiro XML
@@ -66,12 +67,14 @@ function inicializaFicheirosXML()
 		 !global_xmlMenu &&
 		 !global_xmlMensagens &&
 		 !global_xmlContactos &&
-		 !global_xmlUnidadesCurriculares)
+		 !global_xmlUnidadesCurriculares &&
+		 !global_xmlProfessores)
 	{
 			global_xmlRequerimentos = readXML('requerimentos.xml');
 			global_xmlMenu = readXML('menu.xml');
 			global_xmlMensagens = readXML('mensagens.xml');
 			global_xmlContactos = readXML('contactos.xml');
 			global_xmlUnidadesCurriculares = readXML('uc.xml');
+			global_xmlProfessores = readXML('professores.xml');
 	}
 }
