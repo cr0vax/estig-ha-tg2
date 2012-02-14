@@ -25,7 +25,7 @@ function loadContent()
 	document.getElementById("menu_content").innerHTML = loadMenu(readCookie('usertype'));
 	
 	// breadcrumbs
-	document.getElementById("breadcrumbs").innerHTML = MPJSBackLinks();
+	breadcrumbs();
 	
 	// conteúd da página
 	document.getElementById("text").innerHTML = conteudo();

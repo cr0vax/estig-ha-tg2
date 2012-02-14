@@ -42,7 +42,7 @@
 		
 		<submenu>
 			<name>Constituir Júri</name>
-			<url>constituir_juri.html</url>
+			<url>constituirJuri</url>
 			<permissions>coordinator</permissions>
 		</submenu>
 	</menu>

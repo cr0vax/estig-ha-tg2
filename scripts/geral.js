@@ -31,6 +31,26 @@ function validaRadioSeleccionado(id)
 	return return_id;
 }
 
+
+////////////////////////////////////////
+// Valida a qual o valor nas list boxes
+////////////////////////////////////////
+function validaListSeleccionado(id)
+{
+	var listBox = document.getElementById(id);
+	var return_id;	
+	var optsLength = listBox.options.length;
+	
+	// encontra o valor seleccionado
+	for(var i=0;i<optsLength;i++){
+		if(listBox.options[i].selected) {
+			return_id = listBox.options[i].value;
+		}
+	}
+	
+	return return_id;
+}
+  
 //////////////////////////////////////////////
 // Função responsável pela disponibilização de
 // de informação relativa ao utilizador
