@@ -35,9 +35,13 @@ function geraDetalheRequerimento(number, year, process)
 		var x = process.getElementsByTagName("PROCESS");
 	}
 	
-	//alert(x.length);
+	// se foi chamado de emitir parecer então é mostrar a coluna dos ects
+	if (arguments.callee.caller.name == 'desenhaEmitirParecer2')
+	{
+		var ECTS = true;
+	}
 	
-	var htmlOutput = "";
+	var htmlOutput = '';
 	
 	// procura nos processos o processo em questão
 	for (i=0;i<x.length;i++) {
@@ -74,8 +78,11 @@ function geraDetalheRequerimento(number, year, process)
 						'<tr>' +
 							'<th>Tipo de Formações</th>' +
 							'<th>Descrição</th>' +
-							'<th>Anexos</th>' +
-						'</tr>';
+							'<th>Anexos</th>'
+							
+				if (ECTS) {htmlOutput = htmlOutput + '<th>ECTS</th>';}
+				
+				htmlOutput = htmlOutput + '</tr>';
 				
 				// formações
 				var formacoes = disciplinas[j].getElementsByTagName("FORMATION");
@@ -99,11 +106,28 @@ function geraDetalheRequerimento(number, year, process)
 						htmlOutput = htmlOutput + '<a href="' + DOCS_PATH + nome_ficheiro + '">' + descricao + '</a><br>';
 					}
 					
+					// ECTS
+					if (ECTS) 
+					{
+						var id = 'ects_' + j + z;
+						htmlOutput = htmlOutput + '<td>' +
+												  '<input type="text" value="0" name="ects" id="' + id + '" class="txt" onchange="atualizaValorTotal(this.value, \'' + id + '\')"/>' +
+												  '</td>';
+					}
+					
 					htmlOutput = htmlOutput + '</td>';
 					htmlOutput = htmlOutput + '</tr>';
+
 				}
 				
-				
+				// ECTS
+				if (ECTS) 
+				{
+					htmlOutput = htmlOutput + '<tr><td colspan="4" class="cf">' +
+												'<label for="ects_' + j + '"><b>Classificação Final:</b></label>' +
+												'<input type="text" value="0" name="total_ects" id="ects_' + j + '" class="txt" disabled />' +
+											  '</td></tr>';
+				}				
 				
 				//fecha a tabela
 				htmlOutput = htmlOutput + '</table><br>';
@@ -144,7 +168,7 @@ function geraConteudoDetalheRequerimento(number, year)
 	desenhaEsqueletoSubmissao()
 	
 	// adiciona título
-	document.getElementById("titulo").innerHTML = "<h2>Detalhes do requerimento</h2>";
+	document.getElementById("titulo").innerHTML = "Detalhes do requerimento";
 	
 	// gera os detalhes do processo
 	geraDetalheRequerimento(number, year);

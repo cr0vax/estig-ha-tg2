@@ -34,6 +34,8 @@ body {
 	margin: 0px 20px 0px 20px; 
 	}
 
+td.cf {text-align:right;}
+	
 #main { 
 	width: 952px; 
 	margin: 0px auto -1px auto;
@@ -75,7 +77,7 @@ body {
 
 .content{
 	background-color:#EEEEEE;
-	height:700px;
+	height:900px;
 	width:740px;
 	float:left;
 	font-family: Arial, Helvetica, sans-serif;
@@ -198,6 +200,10 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	background-color: #FF0000;
+}
+
+#total_ects{
+	text-align:right;
 }
 
 .login{

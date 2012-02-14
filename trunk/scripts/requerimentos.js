@@ -111,10 +111,8 @@ function filtraInformacao(user_type, number, data)
 // gera lista dos processos
 //
 //////////////////////////////////////////////
-function getLista(field, filter, user_type, number, action)
+function getLista(field, filter, user_type, number, action, caller)
 {
-	//alert('Entrou no getlista de processos');
-	
 	// abre o ficheiro XML dos processos
 	var x = global_xmlRequerimentos.getElementsByTagName("PROCESS");
 	//var listaOutput = "";
@@ -217,13 +215,14 @@ function atualizaPesquisa(user_type, user_number, field, filter)
 //////////////////////////////////////////////
 function listaProcessos(user_type, user_number, field, filter, action)
 {
-	////alert("entrou na lista de processos");
+	// verfica qual foi a função que chamou a lista de processos
+	var caller = arguments.callee.caller.name;
 	
 	// adiciona a funcionalidade de pesquisa
 	document.getElementById("pesquisa").innerHTML = pesquisa(user_type, user_number, field, filter);
 	
 	// adiciona a lista de processos
-	document.getElementById("lista_processos").innerHTML = getLista(field, filter, user_type, user_number, action);
+	document.getElementById("lista_processos").innerHTML = getLista(field, filter, user_type, user_number, action, caller);
 }
 
 //////////////////////////////////////////////
@@ -275,7 +274,7 @@ function consultaRequerimento(field, filter)
 	desenhaEsqueleto(field, filter);
 	
 	// adiciona título
-	document.getElementById("titulo").innerHTML = "<h2>Consultar Requerimentos</h2>";
+	document.getElementById("titulo").innerHTML = "Consultar Requerimentos";
 
 	// adiciona lista de pesquisa
 	listaProcessos(readCookie('usertype'), readCookie('number'), field, filter);
